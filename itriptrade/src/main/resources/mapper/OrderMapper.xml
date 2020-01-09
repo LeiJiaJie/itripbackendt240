@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.itrip.search.dao.OrderMapper">
+
+    <select id="getItripHotelOrder" resultType="cn.itrip.search.beans.pojo.ItripHotelOrder" parameterType="string">
+      select * from itrip_hotel_order where orderNo = #{orderNo}
+    </select>
+
+    <update id="updateItripHotelOrder" parameterType="cn.itrip.search.beans.pojo.ItripHotelOrder">
+        update itrip_hotel_order
+        <set>
+        <if test="tradeNo != null and tradeNo!=''">
+            tradeNo=#{tradeNo},
+        </if>
+        <if test="hotelId != null and hotelId!=''">
+            hotelId=#{hotelId},
+        </if>
+        <if test="hotelName != null and hotelName!=''">
+            hotelName=#{hotelName},
+        </if>
+        <if test="roomId != null and roomId!=''">
+            roomId=#{roomId},
+        </if>
+        <if test="count != null and count!=''">
+            count=#{count},
+        </if>
+        <if test="bookingDays != null and bookingDays!=''">
+            bookingDays=#{bookingDays},
+        </if>
+        <if test="checkInDate != null and checkInDate!=''">
+            checkInDate=#{checkInDate},
+        </if>
+        <if test="checkOutDate != null and checkOutDate!=''">
+            checkOutDate=#{checkOutDate},
+        </if>
+        <if test="orderStatus != null">
+            orderStatus=#{orderStatus},
+        </if>
+        <if test="payAmount != null and payAmount!=''">
+            payAmount=#{payAmount},
+        </if>
+        <if test="payType != null">
+            payType=#{payType},
+        </if>
+        <if test="noticePhone != null and noticePhone!=''">
+            noticePhone=#{noticePhone},
+        </if>
+        <if test="noticeEmail != null and noticeEmail!=''">
+            noticeEmail=#{noticeEmail},
+        </if>
+        <if test="specialRequirement != null and specialRequirement!=''">
+            specialRequirement=#{specialRequirement},
+        </if>
+        <if test="isNeedInvoice != null and isNeedInvoice!=''">
+            isNeedInvoice=#{isNeedInvoice},
+        </if>
+        <if test="invoiceType != null and invoiceType!=''">
+            invoiceType=#{invoiceType},
+        </if>
+        <if test="invoiceHead != null and invoiceHead!=''">
+            invoiceHead=#{invoiceHead},
+        </if>
+        <if test="linkUserName != null and linkUserName!=''">
+            linkUserName=#{linkUserName},
+        </if>
+        <if test="creationDate != null and creationDate!=''">
+            creationDate=#{creationDate},
+        </if>
+        <if test="createdBy != null and createdBy!=''">
+            createdBy=#{createdBy},
+        </if>
+        <if test="modifyDate != null and modifyDate!=''">
+            modifyDate=#{modifyDate},
+        </if>
+        <if test="modifiedBy != null and modifiedBy!=''">
+            modifiedBy=#{modifiedBy}
+        </if>
+        </set>
+        where orderNo=#{orderNo}
+    </update>
+</mapper>
